@@ -1,0 +1,31 @@
+{% extends "admin/layout.html" %}
+{% block content %}
+
+<h2>Login Activity</h2>
+
+<table class="table table-dark table-striped">
+<thead>
+<tr>
+<th>User</th>
+<th>IP</th>
+<th>Browser</th>
+<th>Device</th>
+<th>Login Time</th>
+</tr>
+</thead>
+
+<tbody>
+{% for l in activities %}
+<tr>
+<td>{{ l.user_id }}</td>
+<td>{{ l.ip_address }}</td>
+<td>{{ l.browser }}</td>
+<td>{{ l.device_type }}</td>
+<td>{{ l.login_time }}</td>
+</tr>
+{% endfor %}
+</tbody>
+
+</table>
+
+{% endblock %}

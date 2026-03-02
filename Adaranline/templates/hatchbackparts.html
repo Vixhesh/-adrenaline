@@ -1,0 +1,113 @@
+{% extends "base.html" %}
+{% block content %}
+
+<style>
+    
+
+    .container {
+        width: 80%;
+        margin: 0 auto;
+        padding: 20px;
+    }
+
+    h1 {
+        text-align: center;
+        font-weight: bold;
+    }
+
+    .part {
+        border: 1px solid #ccc;
+        margin-bottom: 20px;
+        padding: 15px;
+        border-radius: 7px;
+        background: rgba(255, 255, 255, 0.7);
+    }
+
+    .part img {
+        max-width: 25%;
+        border-radius: 10px;
+        height: auto;
+    }
+</style>
+<script type="text/javascript">
+    function redirectToPage() {
+        // Use the variable passed from your Flask route
+        window.location.replace("{{"/buy-parts"}}");
+    }
+    // Set timeout for 5 seconds
+    setTimeout(redirectToPage, 5000); 
+</script>
+
+<script type="text/javascript">
+    function askAndRedirect() {
+        // Displays a popup with OK (Yes) and Cancel (No)
+        const userConfirmed = confirm("Do you want to proceed to the new page?");
+        
+        if (userConfirmed) {
+            // If they clicked OK, redirect immediately
+            window.location.replace("{{"/buy-parts"}}");
+        } else {
+            // If they clicked Cancel, do nothing or stay on the current page
+            console.log("Redirect cancelled by user.");
+        }
+    }
+
+    // Still waits 5 seconds before showing the confirmation popup
+    setTimeout(askAndRedirect, 5000); 
+</script>
+
+
+<div class="container">
+    <h1>Hatchback Car Parts and Modifications</h1>
+
+    
+    <div class="part">
+        <h2>All Parts of <br>All Hatchback Cars</h2>
+        <img src="{{ url_for('static', filename='partshatch.webp') }}" alt="Parts">
+        <p><strong>All types of parts Available and<br>More required parts can be Ordered</strong></p>
+    </div>
+
+
+    <div class="part">
+        <h2>Spoiler Setup</h2>
+        <img src="{{ url_for('static', filename='hatchbackspoiler.jpg') }}" alt="Spoiler Setup">
+        <p>Custom spoiler setups for improved aerodynamics and visual appeal.</p>
+    </div>
+
+
+    <div class="part">
+        <h2>Fender</h2>
+        <img src="{{ url_for('static', filename='hatchfender.jpg') }}" alt="Fender">
+        <p>Custom-made fenders for widening cars and improving aerodynamics.</p>
+    </div>
+
+    
+    <div class="part">
+        <h2>Alloys</h2>
+        <img src="{{ url_for('static', filename='hatchbacktyres.avif') }}" alt="Alloys">
+        <p>Different types of alloy wheels with various designs.</p>
+    </div>
+
+    
+    <div class="part">
+        <h2>Different Profile Tires</h2>
+        <img src="{{ url_for('static', filename='hatchbacktyres.avif') }}" alt="Low Profile Tires">
+        <p>
+            Low profile tyres offer better grip during drifting.<br>
+            We also provide high profile tyres for comfort.
+        </p>
+    </div>
+
+    
+    <div class="part">
+        <h2>Suspension and <br>Coilovers</h2>
+        <img src="{{ url_for('static', filename='hatchsedsuspension.png') }}" alt="Suspension">
+        <p>
+            We have a variety of suspensions for different purposes,<br>
+            including high-quality coilovers.
+        </p>
+    </div>
+</div>
+
+{% endblock %}
+

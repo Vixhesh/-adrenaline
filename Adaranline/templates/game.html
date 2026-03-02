@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+{%block title%} ALIEN {% endblock %}
+{% block content %}
+<div style="
+  width: 100%;
+  height: 650px;
+  position: relative;
+  z-index: 10;
+  border-radius: 10%;
+  
+">
+  <iframe
+    src="http://localhost:3000"
+    width="100%"
+    height="100%"
+    style="border:none; background:white;"
+  ></iframe>
+</div>
+
+{% endblock %}

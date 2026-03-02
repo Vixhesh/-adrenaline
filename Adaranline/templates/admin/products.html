@@ -1,0 +1,41 @@
+{% extends "admin/layout.html" %}
+{% block content %}
+
+<h2>Manage Products</h2>
+
+<table class="table table-dark table-hover">
+<thead>
+<tr>
+<th>ID</th>
+<th>Vehicle</th>
+<th>Part</th>
+<th>Price</th>
+<th>Stock</th>
+<th>Actions</th>
+</tr>
+</thead>
+
+<tbody>
+{% for p in products %}
+<tr>
+<td>{{ p.p_id }}</td>
+<td>{{ p.brand }} {{ p.model }}</td>
+<td>{{ p.part_name }}</td>
+<td>₹{{ p.price }}</td>
+<td>
+{% if p.stock < 5 %}
+<span class="text-danger">{{ p.stock }}</span>
+{% else %}
+{{ p.stock }}
+{% endif %}
+</td>
+<td>
+<a href="/admin/product/delete/{{ p.p_id }}" class="btn btn-danger btn-sm">Delete</a>
+</td>
+</tr>
+{% endfor %}
+</tbody>
+
+</table>
+
+{% endblock %}

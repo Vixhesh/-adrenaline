@@ -1,0 +1,82 @@
+{% extends "base.html" %}
+{% block content %}
+<style>
+.loading-btn {
+    position: relative;
+    padding: 14px 32px;
+    font-size: 16px;
+    font-weight: 600;
+    border-radius: 50px;
+    border: none;
+    cursor: pointer;
+
+    background: #0d6efd;
+    color: white;
+    overflow: hidden;
+}
+
+.loading-btn .loader {
+    width: 20px;
+    height: 20px;
+    border: 3px solid rgba(255,255,255,0.4);
+    border-top-color: white;
+    border-radius: 50%;
+    display: none;
+    animation: spin 1s linear infinite;
+}
+
+.loading-btn.loading .label {
+    display: none;
+}
+
+.loading-btn.loading .loader {
+    display: inline-block;
+}
+
+@keyframes spin {
+    to { transform: rotate(360deg); }
+}
+
+
+</style>
+
+
+<h2>Your Cart</h2>
+
+{% for i in items %}
+<div>
+    {{ i.part_name }} —
+    ₹{{ i.price }} × {{ i.quantity }}
+
+    <a href="/cart/update/{{ i.cart_id }}/plus" class="btn btn-success btn-sm">+</a>
+    <a href="/cart/update/{{ i.cart_id }}/minus" class="btn btn-danger btn-sm">−</a>
+</div>
+{% endfor %}
+
+<hr>
+<h3>Total: ₹{{ total }}</h3>
+
+<button class="checkout-btn loading-btn">
+  <span class="label">Proceed to Checkout</span>
+  <span class="loader"></span>
+</button>
+
+<script>
+document.querySelector('.loading-btn').addEventListener('click', function () {
+    this.classList.add('loading');
+    setTimeout(() => {
+        window.location.href = "/checkout";
+    }, 800);
+});
+
+document.addEventListener("pageshow", function () {
+    const btn = document.querySelector('.loading-btn');
+    if (btn) {
+        btn.classList.remove('loading');
+    }
+});
+
+</script>
+
+
+{% endblock %}

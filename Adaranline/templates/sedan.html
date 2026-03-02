@@ -1,0 +1,178 @@
+{% extends "base.html" %}
+{% block content %}
+
+<style>
+    body {
+        background-color: rgb(228, 228, 137) !important;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+    }
+
+    .car-container {
+        width: 32%;
+        margin-bottom: 20px;
+        overflow: hidden;
+    }
+
+    .car-image {
+        width: 100%;
+        height: auto;
+        transition: transform 0.3s ease;
+        border-radius: 8px;
+    }
+
+    .car-image:hover {
+        transform: scale(1.2);
+    }
+
+    ul {
+        list-style-type: none;
+        padding-left: 0;
+    }
+
+    li {
+        margin-bottom: 5px;
+    }
+
+    @media (max-width: 768px) {
+        .car-container {
+            width: 100%;
+        }
+    }
+</style>
+
+<div class="container mt-4">
+
+    <h1 class="text-center fw-bold">
+        Here are the List of Sedan Cars<br>Available With Us
+    </h1>
+
+    <div class="text-center mb-4">
+        <a href="sedancarparts.html"><h3>PARTS AND MODIFICATION ITEMS</h3></a>
+    </div>
+
+    <div class="d-flex flex-wrap justify-content-between">
+
+        
+        <div class="car-container">
+            <img class="car-image" src="{{ url_for('static', filename='m2.webp') }}" alt="BMW M2">
+            <ul>
+                <li><h2>BMW M2</h2></li>
+                <li>Capability: Sporty, performance</li>
+                <li>Minimum Ground Clearance: 4.3 inches</li>
+                <li>Fuel Efficiency: 18-25 MPG</li>
+                <li>Engine type: i6</li>
+                <li>Maximum Power: 476</li>
+            </ul>
+        </div>
+
+        
+        <div class="car-container">
+            <img class="car-image" src="{{ url_for('static', filename='m5.jpg') }}" alt="BMW 5 Series">
+            <ul>
+                <li><h2>BMW 5 Series</h2></li>
+                <li>Capability: Luxury, comfort</li>
+                <li>Minimum Ground Clearance: 5.5 inches</li>
+                <li>Fuel Efficiency: 23-30 MPG</li>
+                <li>Engine type: V8</li>
+                <li>Maximum Power: 625</li>
+            </ul>
+        </div>
+
+        
+        <div class="car-container">
+            <img class="car-image" src="{{ url_for('static', filename='m5.jpg') }}" alt="BMW 5 Series">
+            <ul>
+                <li><h2>BMW 5 Series</h2></li>
+                <li>Capability: Luxury, comfort</li>
+                <li>Minimum Ground Clearance: 5.5 inches</li>
+                <li>Fuel Efficiency: 23-30 MPG</li>
+                <li>Engine type: V8</li>
+                <li>Maximum Power: 625</li>
+            </ul>
+        </div>
+
+         
+        <div class="car-container">
+            <img class="car-image" src="{{ url_for('static', filename='typr.jpg') }}" alt="Honda Civic Type R">
+            <ul>
+                <li><h2>Honda Civic Type R</h2></li>
+                <li>Capability: Sporty, performance</li>
+                <li>Minimum Ground Clearance: 5.1 inches</li>
+                <li>Fuel Efficiency: 22-28 MPG</li>
+                <li>Engine type: V6</li>
+                <li>Maximum Power: 308</li>
+            </ul>
+        </div>
+
+         
+        <div class="car-container">
+            <img class="car-image" src="{{ url_for('static', filename='maybach.jpg') }}" alt="Benz Maybach">
+            <ul>
+                <li><h2>Benz Maybach</h2></li>
+                <li>Capability: Super Luxury, highly attractive</li>
+                <li>Minimum Ground Clearance: 5.3 inches</li>
+                <li>Fuel Efficiency: 18-24 MPG</li>
+                <li>Engine type: V12</li>
+                <li>Maximum Power: 586</li>
+            </ul>
+        </div>
+
+         
+        <div class="car-container">
+            <img class="car-image" src="{{ url_for('static', filename='a8l.jpg') }}" alt="Audi A8L">
+            <ul>
+                <li><h2>Audi A8L</h2></li>
+                <li>Capability: Luxury, compact</li>
+                <li>Minimum Ground Clearance: 4.7 inches</li>
+                <li>Fuel Efficiency: 24-31 MPG</li>
+                <li>Engine type: V8</li>
+                <li>Maximum Power: 586</li>
+            </ul>
+        </div>
+
+        
+        <div class="car-container">
+            <img class="car-image" src="{{ url_for('static', filename='bb.jpg') }}" alt="Mercedes-Benz All Class">
+            <ul>
+                <li><h2>Mercedes-Benz All Class</h2></li>
+                <li>Capability: Luxury, technology</li>
+                <li>Minimum Ground Clearance: 4.8 inches</li>
+                <li>Fuel Efficiency: 20-28 MPG</li>
+                <li>Engine type: Model dependent</li>
+                <li>Maximum Power: Model dependent</li>
+            </ul>
+        </div>
+
+         
+        <div class="car-container">
+            <img class="car-image" src="{{ url_for('static', filename='dodge.jpg') }}" alt="Dodge Charger">
+            <ul>
+                <li><h2>Dodge Charger</h2></li>
+                <li>Capability: High-performance muscle car</li>
+                <li>Minimum Ground Clearance: 5.1 inches</li>
+                <li>Fuel Efficiency: 19-25 MPG</li>
+                <li>Engine type: V12</li>
+                <li>Maximum Power: 1000</li>
+            </ul>
+        </div>
+
+         
+        <div class="car-container">
+            <img class="car-image" src="{{ url_for('static', filename='camrys.jpg') }}" alt="Toyota Camry">
+            <ul>
+                <li><h2>Toyota Camry</h2></li>
+                <li>Capability: Reliable family sedan</li>
+                <li>Minimum Ground Clearance: 5.7 inches</li>
+                <li>Fuel Efficiency: 28-39 MPG</li>
+                <li>Engine type: 4-cylinder + battery pack</li>
+                <li>Maximum Power: 318</li>
+            </ul>
+        </div>
+
+    </div>
+</div>
+
+{% endblock %}
+

@@ -1,0 +1,46 @@
+{% extends "base.html" %}
+{% block content %}
+<style>
+.product-thumb {
+  width: 50%;
+  height: 160px;            
+  object-fit: contain;        
+  background-color: #f7f7f7;
+  border-radius: 4px;
+  display: block;
+  margin-bottom: 10px;
+}
+</style>
+<h2>Available Parts</h2>
+
+<div style="display:grid; grid-template-columns: repeat(3,1fr); gap:20px;">
+
+{% for p in products %}
+<div style="border:1px solid #ccc; padding:15px;">
+
+  <img class="product-thumb"
+     src="{{ url_for('static',filename='images(p)/products/' + p.thumbnail) }}">
+
+  <h4>{{ p.part_name }}</h4>
+  <p><strong>₹{{ p.price }}</strong></p>
+
+  {% if p.stock > 0 %}
+    <span style="color:green;">In Stock</span>
+  {% else %}
+    <span style="color:red;">Out of Stock</span>
+  {% endif %}
+
+  <div style="margin-top:10px;">
+    <a href="/product/{{ p.p_id }}" class="btn btn-warning">Buy Now</a>
+  </div>
+
+</div>
+{% endfor %}
+
+</div>
+
+{% if not products %}
+<p>No products found.</p>
+{% endif %}
+
+{% endblock %}

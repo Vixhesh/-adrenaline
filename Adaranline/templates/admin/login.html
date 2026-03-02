@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Admin Login</title>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
+<style>
+body{
+    height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    background:linear-gradient(135deg,#0f2027,#203a43,#2c5364);
+}
+.card{
+    width:400px;
+    padding:30px;
+    border-radius:15px;
+    backdrop-filter:blur(10px);
+    background:rgba(255,255,255,0.1);
+    color:white;
+}
+    .password-wrapper {
+    position: relative;
+}
+
+.password-wrapper i {
+    position: absolute;
+    top: 50%;
+    right: 12px;
+    transform: translateY(-50%);
+    cursor: pointer;
+    font-size: 18px;
+    color: #777;
+}
+
+.password-wrapper i:hover {
+    color: #000;
+}
+</style>
+</head>
+<body>
+
+<div class="card">
+<h3 class="text-center mb-4">⚙ Admin Login</h3>
+
+<form method="POST">
+<input type="text" name="username" class="form-control mb-3" placeholder="Username" required>
+<input type="password" name="password" class="form-control mb-3" placeholder="Password" required>
+<button class="btn btn-primary w-100">Login</button>
+</form>
+
+
+{% with messages = get_flashed_messages() %}
+{% if messages %}
+<div class="alert alert-danger mt-3">
+{{ messages[0] }}
+</div>
+{% endif %}
+{% endwith %}
+
+</div>
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+    const passwordFields = document.querySelectorAll("input[type='password']");
+
+    passwordFields.forEach((field, index) => {
+
+         
+        const wrapper = document.createElement("div");
+        wrapper.classList.add("password-wrapper");
+        field.parentNode.insertBefore(wrapper, field);
+        wrapper.appendChild(field);
+
+        
+        const icon = document.createElement("i");
+        icon.classList.add("bi", "bi-eye");
+        icon.id = "toggle-" + index;
+        wrapper.appendChild(icon);
+
+        
+        icon.addEventListener("click", () => {
+            const isHidden = field.type === "password";
+            field.type = isHidden ? "text" : "password";
+            icon.classList.toggle("bi-eye");
+            icon.classList.toggle("bi-eye-slash");
+        });
+    });
+});
+</script>
+
+
+</body>
+</html>

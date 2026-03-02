@@ -1,0 +1,11 @@
+{% extends "base.html" %}
+{% block content %}
+<h1>Thank you for Shopping With Us</h1>
+<h2>Order Placed Successfully!</h2>
+
+<p>Order ID: <strong>#{{ order.order_id }}</strong></p>
+<p>Total Paid: ₹{{ order.total_amount }}</p>
+
+<a href="/products">Continue Shopping</a>
+
+{% endblock %}

@@ -1,0 +1,31 @@
+<script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+
+<button onclick="payNow()">Pay Now</button>
+
+<script>
+function payNow() {
+  var options = {
+    key: "{{ razorpay_key_id }}",
+    amount: "{{ amount }}",
+    currency: "INR",
+    order_id: "{{ razorpay_order_id }}",
+
+    handler: function (response) {
+      fetch("/payment-success", {
+        method: "POST",
+        headers: {"Content-Type":"application/json"},
+        body: JSON.stringify({
+            razorpay_payment_id: response.razorpay_payment_id,
+          razorpay_order_id: response.razorpay_order_id,
+          razorpay_signature: response.razorpay_signature,
+          order_id: "{{ order_id }}"
+        })
+      }).then(()=>window.location.href="/order-success/{{order_id}}");
+    }
+  };
+
+ var rzp = new Razorpay(options);
+  rzp.open();
+}
+console.log("Razorpay key:", "{{ razorpay_key_id }}");
+</script>

@@ -1,0 +1,404 @@
+{% extends "base.html" %}
+{% block content %}
+<!-- Page Loader -->
+<div class="page-loader" id="pageLoader">
+    <div class="loader-spinner"></div>
+</div>
+
+
+<!-- ================= PREMIUM AUTOMOTIVE HOME PAGE ================= -->
+
+<!-- Google Font -->
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+<!-- AOS Animation CDN -->
+<link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet">
+
+<style>
+
+/* ================= GLOBAL THEME ================= */
+body {
+    background: #0f1115;
+    color: #fff;
+    font-family: 'Poppins', sans-serif;
+    scroll-behavior: smooth;
+}
+
+.section-padding {
+    padding: 100px 0;
+}
+
+.glass-card {
+    background: rgba(255,255,255,0.05);
+    backdrop-filter: blur(12px);
+    border-radius: 15px;
+    padding: 30px;
+    transition: 0.4s ease;
+}
+
+.glass-card:hover {
+    background: rgba(0,123,255,0.1);
+    transform: translateY(-8px);
+}
+
+.section-title {
+    font-weight: 700;
+    letter-spacing: 2px;
+    margin-bottom: 40px;
+}
+
+/* ================= HERO SECTION ================= */
+.hero-section {
+    height: 90vh;
+    background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)),
+                url('https://images.unsplash.com/photo-1503376780353-7e6692767b70') center/cover no-repeat;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    justify-content: center;
+    border-radius: 15px;
+
+}
+
+.hero-content h1 {
+    font-size: 3rem;
+    font-weight: 700;
+}
+
+.hero-content p {
+    font-size: 1.2rem;
+    margin-top: 15px;
+    opacity: 0.9;
+}
+
+.hero-btn {
+    margin-top: 25px;
+    padding: 12px 35px;
+    border-radius: 50px;
+    transition: 0.4s;
+}
+
+.hero-btn:hover {
+    transform: scale(1.08);
+}
+/* ================= CAROUSEL INDICATORS ================= */
+
+.custom-indicators {
+    bottom: 10px;
+}
+
+.carousel-indicators [data-bs-target] {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background-color: rgba(255,255,255,0.5);
+    border: none;
+    margin: 0 6px;
+    transition: all 0.3s ease;
+}
+
+.carousel-indicators .active {
+    background-color: #fbf9f6;
+    transform: scale(1.2);
+}
+
+
+/* ================= CAR CATEGORY SECTIONS ================= */
+.car-section {
+    position: relative;
+    overflow: hidden;
+}
+
+.car-section img {
+    width: 100%;
+    border-radius: 15px;
+    transition: transform 0.6s ease;
+}
+
+.car-section:hover img {
+    transform: scale(1.05);
+}
+
+.overlay-hover {
+    position: absolute;
+    inset: 0;
+    background: rgba(0,123,255,0.15);
+    opacity: 0;
+    transition: 0.5s;
+    border-radius: 15px;
+}
+
+.car-section:hover .overlay-hover {
+    opacity: 1;
+}
+
+/* Floating heading */
+.floating-heading {
+    animation: float 4s ease-in-out infinite;
+}
+
+@keyframes float {
+    0% { transform: translateY(0px); }
+    50% { transform: translateY(-8px); }
+    100% { transform: translateY(0px); }
+}
+
+/* ================= WHY CHOOSE US ================= */
+.icon-box i {
+    font-size: 2rem;
+    margin-bottom: 15px;
+    color: #ffd36b;
+}
+
+/* ================= TESTIMONIAL ================= */
+.testimonial-card {
+    background: #1a1d23;
+    border-radius: 15px;
+    padding: 30px;
+    transition: 0.4s;
+}
+
+.testimonial-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 10px 40px rgba(0,0,0,0.4);
+}
+
+</style>
+
+<!-- ================= HERO ================= -->
+<section class="hero-section">
+    <div class="hero-content" data-aos="fade-up">
+        <h1 class="floating-heading" style="color:white;">Drive the Future with Adranaline Garages</h1>
+        <p style="color:white;">Premium Vehicles. Trusted Service. Unmatched Performance.</p>
+        <a href="#categories" class="btn btn-primary hero-btn">Explore Cars</a>
+    </div>
+</section>
+
+<!-- ================= FEATURED CARS CAROUSEL ================= -->
+
+<section class="section-padding">
+    <div class="container">
+        <h2 class="text-center section-title" color="black"data-aos="fade-up">Featured Collection</h2>
+
+        <div id="featuredCarousel" class="carousel slide" data-bs-ride="carousel" data-aos="zoom-in">
+            <div class="carousel-indicators custom-indicators">
+        <button type="button" data-bs-target="#featuredCarousel" data-bs-slide-to="0" class="active"></button>
+        <button type="button" data-bs-target="#featuredCarousel" data-bs-slide-to="1"></button>
+        <button type="button" data-bs-target="#featuredCarousel" data-bs-slide-to="2"></button>
+    </div>
+
+    <div class="carousel-inner rounded-4 overflow-hidden">
+            <div class="carousel-inner rounded-4 overflow-hidden">
+                <div class="carousel-item active">
+                    <img src="{{ url_for('static', filename='featured1.jpg') }}"
+                    
+                         class="d-block w-100"
+                         alt="Luxury SUV">
+                </div>
+                <div class="carousel-item">
+                    <img src="https://images.unsplash.com/photo-1492144534655-ae79c964c9d7"
+                         class="d-block w-100"
+                         alt="Premium Sedan">
+                </div>
+                <div class="carousel-item">
+                    <img src="https://images.unsplash.com/photo-1502877338535-766e1452684a"
+                         class="d-block w-100"
+                         alt="Supercar">
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<!-- ================= CAR CATEGORIES ================= -->
+<section id="categories" class="section-padding">
+<div class="container">
+
+<h2 class="text-center section-title" data-aos="fade-up">
+Our Car Categories
+</h2>
+
+<!-- SUV -->
+<div class="row align-items-center mb-5 car-section" data-aos="fade-right">
+    <div class="col-md-6 position-relative">
+        <a href="{{ url_for('suv') }}"> <img src="{{ url_for('static', filename='suv.jpg') }}" class="rounded single" alt="SUV car image placeholder"> </a>
+        <div class="overlay-hover"></div>
+    </div>
+    <div class="col-md-6">
+        <h3>SUV</h3>
+        <p>Powerful and spacious SUVs built for adventure and family comfort.</p>
+        <ul>
+            <li>Engine: 2.0L Turbo Diesel</li>
+            <li>Mileage: 15-20 km/l</li>
+            <li>Horsepower: 190 HP</li>
+            <li>Price: ₹12L – ₹NL</li>
+            
+        </ul>
+        <a href="{{ url_for('suv') }}" class="btn btn-dark page-link">Explore Suvs</a>
+    </div>
+</div>
+
+<!-- Sedan -->
+<div class="row align-items-center mb-5 flex-md-row-reverse car-section" data-aos="fade-left">
+    <div class="col-md-6 position-relative">
+        <img src="{{url_for('static',filename="sdn.avif")}}">
+        <div class="overlay-hover"></div>
+    </div>
+    <div class="col-md-6">
+        <h3>Sedan</h3>
+        <p>Elegant design meets performance for a refined driving experience.</p>
+        <ul>
+            <li>Engine: 1.5L Petrol</li>
+            <li>Mileage: 18-22 km/l</li>
+            <li>Horsepower: 150 HP</li>
+            <li>Price: ₹8L – ₹18L</li>
+        </ul>
+        <a href="{{ url_for('sedan') }}" class="btn btn-dark page-link">Explore Sedan</a>
+    </div>
+</div>
+
+<!-- Hatchback -->
+<div class="row align-items-center mb-5 car-section" data-aos="fade-right">
+    <div class="col-md-6 position-relative">
+       
+        <img src="{{ url_for('static', filename='hatchback.jpeg') }}"
+                 alt="Hatchback car image placeholder">
+        <div class="overlay-hover"></div>
+    </div>
+    <div class="col-md-6">
+        <h3>Hatchback</h3>
+        <p>Compact, stylish, and efficient for city life.</p>
+        <ul>
+            <li>Engine: 1.2L Petrol</li>
+            <li>Mileage: 20-25 km/l</li>
+            <li>Horsepower: 110 HP</li>
+            <li>Price: ₹5L – ₹10L</li>
+        </ul>
+          <a href="{{ url_for('hatchback') }}" class="btn btn-outline-dark page-link">Explore HatchBack</a>
+    </div>
+</div>
+
+<!-- Aggressive -->
+<div class="row align-items-center flex-md-row-reverse car-section" data-aos="fade-left">
+    <div class="col-md-6 position-relative">
+        <a href="{{ url_for('aggressive') }}">
+            <img src="{{ url_for('static', filename='agressive.jpg') }}"
+                 alt="Supercar image placeholder">
+        </a>
+        <div class="overlay-hover"></div>
+    </div>
+    <div class="col-md-6">
+        <h3>Aggressive (Supercars & Hypercars)</h3>
+        <p>Unleash pure adrenaline with unmatched speed and precision engineering.</p>
+        <ul>
+            <li>Engine: 5.0L V8 Twin Turbo</li>
+            <li>Mileage: 6-10 km/l</li>
+            <li>Horsepower: 700+ HP</li>
+            <li>Price: ₹1Cr – ₹5Cr+</li>
+        </ul>
+        <a href="{{ url_for('aggressive') }}" class="btn btn-outline-danger page-link">Explore Adranline</a>
+    </div>
+</div>
+
+</div>
+</section>
+
+<!-- ================= WHY CHOOSE US ================= -->
+<section class="section-padding bg-dark">
+<div class="container text-center">
+<h2 class="section-title" style="color:white;" data-aos="fade-up">Why Choose Us</h2>
+
+<div class="row mt-4">
+    <div class="col-md-3 icon-box" data-aos="zoom-in">
+        <i class="bi bi-shield-check"></i>
+        <h5 style="color:white;">Trusted Dealer</h5>
+    </div>
+    <div class="col-md-3 icon-box" data-aos="zoom-in" data-aos-delay="100">
+        <i class="bi bi-patch-check"></i>
+        <h5 style="color:white; ">Certified Vehicles</h5>
+    </div>
+    <div class="col-md-3 icon-box" data-aos="zoom-in" data-aos-delay="200">
+        <i class="bi bi-cash-coin"></i>
+        <h5 style="color:white;">Finance Options</h5>
+    </div>
+    <div class="col-md-3 icon-box" data-aos="zoom-in" data-aos-delay="300">
+        <i class="bi bi-tools"></i>
+        <h5 style="color:white;">After-Sales Service</h5>
+    </div>
+</div>
+</div>
+</section>
+
+<!-- ================= TESTIMONIALS ================= -->
+<section class="section-padding">
+<div class="container">
+<h2 class="text-center section-title" style="color:white;" data-aos="fade-up">Customer Testimonials</h2>
+
+<div class="row mt-4">
+    <div class="col-md-4" data-aos="fade-up">
+        <div class="testimonial-card">
+            <p style="color:white;">"Best dealership experience I've ever had!"</p>
+            <strong style="color:white;" >- Rahul S.</strong>
+        </div>
+    </div>
+    <div class="col-md-4" data-aos="fade-up" data-aos-delay="100">
+        <div class="testimonial-card">
+            <p style="color:white;">"Smooth process and excellent after-sales service."</p>
+            <strong style="color:white;" >- Priya K.</strong>
+        </div>
+    </div>
+    <div class="col-md-4" data-aos="fade-up" data-aos-delay="200">
+        <div class="testimonial-card">
+            <p style="color:white;" >"Their supercar collection is insane!"</p>
+            <strong style="color:white;">- Arjun M.</strong>
+        </div>
+    </div>
+</div>
+</div>
+</section>
+
+<!-- ================= FOOTER PLACEHOLDER ================= -->
+<section class="text-center py-4">
+    <p class="text-muted">© 2025 Adranaline Garages. All Rights Reserved.</p>
+</section>
+
+<!-- ================= SCRIPTS ================= -->
+<script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+<script>
+AOS.init({
+    duration: 1000,
+    once: true
+});
+
+
+document.addEventListener("DOMContentLoaded", function() {
+
+    const loader = document.getElementById("pageLoader");
+
+    // Hide loader after page load
+    window.addEventListener("load", () => {
+        loader.classList.add("hidden");
+    });
+
+    // Add smooth transition on route change
+    document.querySelectorAll(".page-link").forEach(link => {
+        link.addEventListener("click", function(e) {
+            e.preventDefault();
+            const href = this.getAttribute("href");
+
+            document.body.classList.add("fade-out");
+            loader.classList.remove("hidden");
+
+            setTimeout(() => {
+                window.location.href = href;
+            }, 400);
+        });
+    });
+
+});
+
+
+</script>
+
+{% endblock %}

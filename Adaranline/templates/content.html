@@ -1,0 +1,75 @@
+{% extends "base.html" %}
+{% block title %}Adrenaline Dealer{% endblock %}
+
+{% block content %}
+
+<div class="container my-4">
+
+     
+    <div class="text-center bg-dark text-white py-4 rounded">
+        <h1>Adrenaline Dealer</h1>
+    </div>
+
+    
+    <section class="mt-4">
+         
+        <p class="text-center">
+            Welcome to Adrenaline Dealer, your one-stop destination for high-performance vehicles!
+        </p>
+    </section>
+
+     
+    <div class="row mt-5 g-4">
+
+         
+        <div class="col-md-3">
+            <div class="card shadow">
+                <div class="card-body text-center">
+                    <h5 class="card-title">
+                        <a href="{{ url_for('suv') }}" class="text-decoration-none">SUVs</a>
+                    </h5>
+                    <p>Check out our collection of powerful and rugged SUVs.</p>
+                </div>
+            </div>
+        </div>
+
+         
+        <div class="col-md-3">
+            <div class="card shadow">
+                <div class="card-body text-center">
+                    <h5 class="card-title">
+                        <a href="{{ url_for('hatchback') }}" class="text-decoration-none">Hatchbacks</a>
+                    </h5>
+                    <p>Discover our range of sporty and versatile hatchbacks.</p>
+                </div>
+            </div>
+        </div>
+
+         
+        <div class="col-md-3">
+            <div class="card shadow">
+                <div class="card-body text-center">
+                    <h5 class="card-title">
+                        <a href="{{ url_for('sedan') }}" class="text-decoration-none">Sedans</a>
+                    </h5>
+                    <p>Explore our selection of sleek and stylish sedans.</p>
+                </div>
+            </div>
+        </div>
+
+         
+        <div class="col-md-3">
+            <div class="card shadow">
+                <div class="card-body text-center">
+                    <h5 class="card-title">
+                        <a href="{{ url_for('aggressive') }}" class="text-decoration-none">Aggressive</a>
+                    </h5>
+                    <p>Experience the thrill of driving our most aggressive vehicles.</p>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+{% endblock %}

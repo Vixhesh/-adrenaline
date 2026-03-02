@@ -1,0 +1,49 @@
+{% extends "admin/layout.html" %}
+{% block content %}
+
+<h2>Manage Users</h2>
+
+<input type="text" id="searchInput" class="form-control mb-3" placeholder="Search user...">
+
+<table class="table table-dark table-hover">
+<thead>
+<tr>
+<th>ID</th>
+<th>Name</th>
+<th>Email</th>
+<th>Phone</th>
+<th>Actions</th>
+</tr>
+</thead>
+<tbody id="userTable">
+
+{% for u in users %}
+<tr>
+<td>{{ u.id }}</td>
+<td>{{ u.name }}</td>
+<td>{{ u.email }}</td>
+<td>{{ u.phone }}</td>
+<td>
+<button class="btn btn-warning btn-sm editBtn">Edit</button>
+<a href="/admin/delete-user/{{ u.id }}" class="btn btn-danger btn-sm">Delete</a>
+</td>
+</tr>
+{% endfor %}
+
+</tbody>
+</table>
+
+<script>
+document.getElementById("searchInput").addEventListener("keyup",function(){
+    let value=this.value.toLowerCase();
+    document.querySelectorAll("#userTable tr").forEach(row=>{
+        row.style.display=row.innerText.toLowerCase().includes(value)?"":"none";
+    });
+});
+
+document.querySelectorAll(".editBtn").forEach(btn=>{
+    btn.addEventListener("click",()=>alert("Edit feature coming next"));
+});
+</script>
+
+{% endblock %}

@@ -1,0 +1,144 @@
+{% extends "base.html" %}
+{% block content %}
+<style>
+    .product-detail-img-box {
+  width: 420px;               
+  height: 420px;
+  border: 1px solid #ddd;
+  background: #fafafa;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+ 
+.product-detail-img {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+}
+.cart-btn {
+    position: relative;
+    padding: 12px 30px;
+    background: #0d6efd;
+    color: #fff;
+    border: none;
+    border-radius: 6px;
+    font-weight: 600;
+    overflow: hidden;
+}
+
+.cart-btn.loading {
+    width: 50px;
+    border-radius: 50%;
+    padding: 12px;
+}
+
+.cart-btn.success {
+    background: #28a745;
+}
+
+.cart-btn::after {
+    content: "";
+    width: 22px;
+    height: 22px;
+    border: 3px solid #fff;
+    border-top-color: transparent;
+    border-radius: 50%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: none;
+    animation: spin 1s linear infinite;
+}
+
+.cart-btn.loading::after {
+    display: block;
+}
+
+@keyframes spin {
+    to { transform: rotate(360deg); }
+}
+</style>
+
+<div style="display:flex; gap:40px;">
+
+  <div style="width:45%;">
+   
+
+    <div class="product-detail-img-box">
+    <img class="product-detail-img"
+         src="{{ url_for('static',
+             filename='images(p)/products/' + product.image_1) }}">
+</div>
+  </div>
+
+  <div style="width:55%;">
+    <h2>{{ product.title }}</h2>
+    <h3>₹{{ product.price }}</h3>
+
+    <p>{{ product.description }}</p>
+
+    {% if product.features %}
+    <ul>
+      {% for k,v in product.features.items() %}
+        <li><strong>{{ k }}:</strong> {{ v }}</li>
+      {% endfor %}
+    </ul>
+    {% endif %}
+
+    <p>⭐ {{ product.rating }} ({{ product.review_count }} reviews)</p>
+
+    {% if product.stock > 0 %}
+
+<button  class="cart-btn"  id="addToCartBtn"  data-product="{{ product.p_id }}">
+    Add to Cart
+</button>
+
+
+<form action="/buy-now/{{ product.p_id }}" method="POST" style="display:inline;">
+    <button class="btn btn-warning">Buy Now</button>
+</form>
+
+{% else %}
+<button disabled>Out of Stock</button>
+{% endif %}
+
+  </div>
+
+</div>
+<script>
+document.getElementById("addToCartBtn").addEventListener("click", async function () {
+
+    const btn = this;
+    const productId = btn.dataset.product;
+
+    btn.classList.add("loading");
+    btn.textContent = "";
+
+    const res = await fetch(`/add-to-cart/${productId}`, { method: "POST" });
+    const data = await res.json();
+
+    if (data.status === "login_required") {
+        window.location.href = "/LoginRegister";
+        return;
+    }
+
+    if (data.status === "success") {
+        btn.classList.remove("loading");
+        btn.classList.add("success");
+        btn.textContent = "✓";
+
+        document.getElementById("cart-icon")
+            ?.classList.add("shake");
+
+        setTimeout(() => {
+            btn.classList.remove("success");
+            btn.textContent = "Add to Cart";
+        }, 1500);
+    }
+});
+</script>
+
+{% endblock %}

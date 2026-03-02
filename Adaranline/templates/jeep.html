@@ -1,0 +1,112 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h1>Jeep Wrangler</h1>
+
+<ul>
+    <li><strong>Alloys</strong></li>
+    Available in different sizes
+    <li style="margin-left: 20px;">
+        6J 20 inch<br> 8J 20 inch<br> 10J 20inch
+    </li>
+    <li style="margin-left: 20px;">
+        6J 22inch<br> 8J 22 inch<br> 10J 22inch
+    </li>
+    <li style="margin-left: 20px;">
+        6J 24 inch<br> 8J 24 inch<br> 10J 24inch
+    </li>
+    <form action="{{ url_for('cart.add_to_cart', product='Jeep Wrangler') }}" method="post" style="display:inline;">
+        <button type="submit" style="padding:10px 20px; background:orange; border:none; border-radius:5px; cursor:pointer;">
+            🛒 Add to Cart
+        </button>
+    </form>
+    <form action="{{ url_for('cart.buy_now', product='Jeep Wrangler') }}" method="post" style="display:inline;">
+        <button type="submit" style="padding:10px 20px; background:green; color:white; border:none; border-radius:5px; cursor:pointer;">
+            ⚡ Buy Now
+        </button>
+    </form>
+
+    <li><strong>Tyres</strong></li>
+    <li style="margin-left: 20px;"> 
+        295/110/R20 <br> 310/140/R20<br> 340/170/R20
+    </li>
+    <li style="margin-left: 20px;">
+        295/140/R22<br> 310/180/R22<br> 340/200/R22
+    </li>
+    <li style="margin-left: 20px;">
+        295/160/R24<br> 310/190/R24<br> 340/220/R24
+    </li>
+    <form action="{{ url_for('cart.add_to_cart', product='Jeep Wrangler') }}" method="post" style="display:inline;">
+        <button type="submit" style="padding:10px 20px; background:orange; border:none; border-radius:5px; cursor:pointer;">
+            🛒 Add to Cart
+        </button>
+    </form>
+    <form action="{{ url_for('cart.buy_now', product='Jeep Wrangler') }}" method="post" style="display:inline;">
+        <button type="submit" style="padding:10px 20px; background:green; color:white; border:none; border-radius:5px; cursor:pointer;">
+            ⚡ Buy Now
+        </button>
+    </form>
+
+    <li><strong>Bumper</strong></li>
+    <li style="margin-left: 20px;">
+        Hummer<br>Proman<br>Prad<br>Jurna
+    </li>
+    <form action="{{ url_for('cart.add_to_cart', product='Jeep Wrangler') }}" method="post" style="display:inline;">
+        <button type="submit" style="padding:10px 20px; background:orange; border:none; border-radius:5px; cursor:pointer;">
+            🛒 Add to Cart
+        </button>
+    </form>
+    <form action="{{ url_for('cart.buy_now', product='Jeep Wrangler') }}" method="post" style="display:inline;">
+        <button type="submit" style="padding:10px 20px; background:green; color:white; border:none; border-radius:5px; cursor:pointer;">
+            ⚡ Buy Now
+        </button>
+    </form>
+
+    <li><strong>Stability Kit</strong></li>
+    <li style="margin-left: 20px;">20ps suspension and coilover</li>
+    <li style="margin-left: 20px;">50ps suspension and coilover</li>
+    <li style="margin-left: 20px;">Fluid suspension and coilover</li>
+    <form action="{{ url_for('cart.add_to_cart', product='Jeep Wrangler') }}" method="post" style="display:inline;">
+        <button type="submit" style="padding:10px 20px; background:orange; border:none; border-radius:5px; cursor:pointer;">
+            🛒 Add to Cart
+        </button>
+    </form>
+    <form action="{{ url_for('cart.buy_now', product='Jeep Wrangler') }}" method="post" style="display:inline;">
+        <button type="submit" style="padding:10px 20px; background:green; color:white; border:none; border-radius:5px; cursor:pointer;">
+            ⚡ Buy Now
+        </button>
+    </form>
+
+    <li><strong>Headlight</strong></li>
+    <li style="margin-left:20px;">
+        King Khong type <br> Angry Bird<br>Devil Eye<br>Evil Eye
+    </li>
+    <form action="{{ url_for('cart.add_to_cart', product='Jeep Wrangler') }}" method="post" style="display:inline;">
+        <button type="submit" style="padding:10px 20px; background:orange; border:none; border-radius:5px; cursor:pointer;">
+            🛒 Add to Cart
+        </button>
+    </form>
+    <form action="{{ url_for('cart.buy_now', product='Jeep Wrangler') }}" method="post" style="display:inline;">
+        <button type="submit" style="padding:10px 20px; background:green; color:white; border:none; border-radius:5px; cursor:pointer;">
+            ⚡ Buy Now
+        </button>
+    </form>
+
+    <li><strong>Wrapping</strong></li>
+    Any color you can select<br> Example:- Blue with graphics etc
+    <form action="{{ url_for('cart.add_to_cart', product='Jeep Wrangler') }}" method="post" style="display:inline;">
+        <button type="submit" style="padding:10px 20px; background:orange; border:none; border-radius:5px; cursor:pointer;">
+            🛒 Add to Cart
+        </button>
+    </form>
+    <form action="{{ url_for('cart.buy_now', product='Jeep Wrangler') }}" method="post" style="display:inline;">
+        <button type="submit" style="padding:10px 20px; background:green; color:white; border:none; border-radius:5px; cursor:pointer;">
+            ⚡ Buy Now
+        </button>
+    </form>
+</ul>
+
+
+ 
+
+{% endblock %}

@@ -1,0 +1,155 @@
+{% extends "base.html" %}
+{% block content %}
+
+<style>
+    body {
+        background-color: lightblue !important;
+    }
+
+    h1 {
+        width: 100%;
+        text-align: center;
+    }
+
+    h2 {
+        margin-top: 20px;
+        margin-bottom: 10px;
+        width: 100%;
+    }
+
+    ul.vehicle-list {
+        width: 45%;
+        margin: 0;
+        padding: 0;
+    }
+
+    li {
+        list-style-type: none;
+        margin-bottom: 10px;
+    }
+
+    .vehicle-img {
+        width: 90%;
+        height: auto;
+        transition: transform 0.3s;
+        border-radius: 10px;
+    }
+
+    .vehicle-img:hover {
+        transform: scale(1.1);
+    }
+
+    @media(max-width: 768px) {
+        ul.vehicle-list {
+            width: 100%;
+        }
+    }
+</style>
+
+<div class="container mt-4">
+
+    <h1 class="mb-4">List of SUVs Available<br>With Us</h1>
+
+    <div class="d-flex flex-wrap justify-content-between">
+
+         
+        <ul class="vehicle-list">
+            <li>
+                <h2>Mercedes Benz G-Wagon</h2>
+                <img src="{{ url_for('static', filename='gwagon.jfif') }}"
+                     class="vehicle-img" alt="G-Wagon">
+
+                <ul>
+                    <li>Capability: Off-road, towing</li>
+                    <li>Minimum Ground Clearance: 8.9 inches</li>
+                    <li>Fuel Efficiency: 13-17 MPG</li>
+                    <li><a href="{{ url_for('GWagon') }}">For Parts and Detailed Knowledge</a></li>
+                </ul>
+            </li>
+        </ul>
+
+        
+        <ul class="vehicle-list">
+            <li>
+                <h2>Land Rover Defender</h2>
+                <img src="{{ url_for('static', filename='defender.jpeg') }}"
+                     class="vehicle-img" alt="Defender">
+
+                <ul>
+                    <li>Capability: Off-road, towing</li>
+                    <li>Minimum Ground Clearance: 8.9 inches</li>
+                    <li>Fuel Efficiency: 13-17 MPG</li>
+                    <li><a href="{{ url_for('defender') }}">For Parts and Detailed Knowledge</a></li>
+                </ul>
+            </li>
+        </ul>
+
+        
+        <ul class="vehicle-list">
+            <li>
+                <h2>Toyota Land Cruiser</h2>
+                <img src="{{ url_for('static', filename='lands.jpg') }}"
+                     class="vehicle-img" alt="Toyota Land Cruiser">
+
+                <ul>
+                    <li>Capability: Off-road, towing</li>
+                    <li>Minimum Ground Clearance: 8.9 inches</li>
+                    <li>Fuel Efficiency: 13-17 MPG</li>
+                    <li><a href="{{ url_for('land_c') }}">For Parts and Detailed Knowledge</a></li>
+                </ul>
+            </li>
+        </ul>
+
+         
+        <ul class="vehicle-list">
+            <li>
+                <h2>Jeep Wrangler</h2>
+                <img src="{{ url_for('static', filename='jeepw.jpg') }}"
+                     class="vehicle-img" alt="Jeep Wrangler">
+
+                <ul>
+                    <li>Capability: Off-road, rock crawling</li>
+                    <li>Minimum Ground Clearance: 10.8 inches</li>
+                    <li>Fuel Efficiency: 17-25 MPG</li>
+                    <li><a href="{{ url_for('jeep') }}">For Parts and Detailed Knowledge</a></li>
+                </ul>
+            </li>
+        </ul>
+
+         
+        <ul class="vehicle-list">
+            <li>
+                <h2>Range Rover Sport</h2>
+                <img src="{{ url_for('static', filename='srange.jpg') }}"
+                     class="vehicle-img" alt="Range Rover Sport">
+
+                <ul>
+                    <li>Capability: Luxury, off-road</li>
+                    <li>Minimum Ground Clearance: 8.4 inches</li>
+                    <li>Fuel Efficiency: 17-24 MPG</li>
+                    <li><a href="{{ url_for('range') }}">For Parts and Detailed Knowledge</a></li>
+                </ul>
+            </li>
+        </ul>
+
+         
+        <ul class="vehicle-list">
+            <li>
+                <h2>Ford Everest</h2>
+                <img src="{{ url_for('static', filename='ford.webp') }}"
+                     class="vehicle-img" alt="Ford Everest">
+
+                <ul>
+                    <li>Capability: High Tech Offroading, Best Driving Pleasure</li>
+                    <li>Minimum Ground Clearance: 8.4 inches</li>
+                    <li>Fuel Efficiency: 17-24 MPG</li>
+                    <li><a href="{{ url_for('ford') }}">For Parts and Detailed Knowledge</a></li>
+                </ul>
+            </li>
+        </ul>
+
+    </div>
+</div>
+
+{% endblock %}
+

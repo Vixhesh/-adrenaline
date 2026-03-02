@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sedan Cars Information</title>
+    <style>
+        body {
+            background-color: rgb(228, 228, 137);
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+        }
+
+        .car-container {
+            width: 32%; 
+            margin-bottom: 20px;
+        }
+
+        .car-image {
+            width: 90%;
+            height: auto;
+            margin-bottom: 10px;
+        }
+
+        ul {
+            list-style-type: none;
+            padding-left: 0;
+        }
+
+        li {
+            margin-bottom: 5px;
+        }
+    </style>
+    <script>
+        function handleMouseOver(image) {
+            image.style.opacity = '1';  
+        }
+
+        function handleMouseOut(image) {
+            image.style.opacity = '4';  
+        }
+    </script>
+</head>
+<body>
+    <strong><h1>Here are the List of sedan Car<br>Available With US</h1><br><a href="partsofsedan.html"><h3>PARTS AND MODIFICATION ITEMS</h3></a></strong>
+     
+    <div class="car-container">
+        <img class="car-image" src="m2.webp" alt="BMW M2" onmouseover="handleMouseOver(this)" onmouseout="handleMouseOut(this)">
+        <ul>
+            <li><h2>BMW M2</h2></li>
+            <li>Capability: Sporty, performance</li>
+            <li>Minimum Ground Clearance: 4.3 inches</li>
+            <li>Fuel Efficiency: 18-25 MPG</li>
+            <li>Engine type=i6</li>
+            <li>Maximum Power=476</li>
+        </ul>
+    </div>
+
+    <div class="car-container">
+        <img class="car-image" src="m5.jpg" alt="BMW 5 Series" onmouseover="handleMouseOver(this)" onmouseout="handleMouseOut(this)">
+        <h2>BMW 5 Series</h2>
+        <ul>
+            <li>Capability: Luxury, comfort</li>
+            <li>Minimum Ground Clearance: 5.5 inches</li>
+            <li>Fuel Efficiency: 23-30 MPG</li>
+            <li>Engine type=V8</li>
+            <li>Maximum Power=625</li>
+        </ul>
+    </div>
+    
+    <div class="car-container">
+        <img class="car-image" src="typr.jpg" alt="Honda Civic Type R" onmouseover="handleMouseOver(this)" onmouseout="handleMouseOut(this)">
+        <h2>Honda Civic Type R</h2>
+        <ul>
+            <li>Capability: Sporty, performance</li>
+            <li>Minimum Ground Clearance: 5.1 inches</li>
+            <li>Fuel Efficiency: 22-28 MPG</li>
+            <li>Engine type=V6</li>
+            <li>Maximum Power=308</li>
+        </ul>
+    </div>
+    
+    <div class="car-container">
+        <img class="car-image" src="maybach.jpg" alt="Toyota Crown" onmouseover="handleMouseOver(this)" onmouseout="handleMouseOut(this)">
+        <h2>Benz Maybach</h2>
+        <ul>
+            <li>Capability: Super Luxury, comfort,highly attractive</li>
+            <li>Minimum Ground Clearance: 5.3 inches</li>
+            <li>Fuel Efficiency: 18-24 MPG</li>
+            <li>Engine type=V12</li>
+            <li>Maximum Power=586</li>
+        </ul>
+    </div>
+    
+    <div class="car-container">
+        <img class="car-image" src="a8l.jpg" alt="Audi A3" onmouseover="handleMouseOver(this)" onmouseout="handleMouseOut(this)">
+        <h2>Audi A8L</h2>
+        <ul>
+            <li>Capability: Luxury, compact</li>
+            <li>Minimum Ground Clearance: 4.7 inches</li>
+            <li>Fuel Efficiency: 24-31 MPG</li>
+            <li>Engine type=V8</li>
+            <li>Maximum Power=586</li>
+        </ul>
+    </div>
+    
+    <div class="car-container">
+        <img class="car-image" src="bb.jpg" alt="Mercedes-Benz all Class" onmouseover="handleMouseOver(this)" onmouseout="handleMouseOut(this)">
+        <h2>Mercedes-Benz ALL Class</h2>
+        <ul>
+            <li>Capability: Luxury, technology</li>
+            <li>Minimum Ground Clearance: 4.8 inches</li>
+            <li>Fuel Efficiency: 20-28 MPG</li>
+            <li>Engine type=Depend on Model</li>
+            <li>Maximum Power=Model Dependent</li>
+        </ul>
+    </div>
+    
+    <div class="car-container">
+        <img class="car-image" src="dodge.jpg" alt="Dodge Charger" onmouseover="handleMouseOver(this)" onmouseout="handleMouseOut(this)">
+        <h2>Dodge Charger</h2>
+        <ul>
+            <li>Capability: High-performance, muscle car</li>
+            <li>Minimum Ground Clearance: 5.1 inches</li>
+            <li>Fuel Efficiency: 19-25 MPG</li>
+            <li>Engine type=V12</li>
+            <li>Maximum Power=1000</li>
+        </ul>
+    </div>
+    
+    <div class="car-container">
+        <img class="car-image" src="camrys.jpg" alt="Toyota Camry" onmouseover="handleMouseOver(this)" onmouseout="handleMouseOut(this)">
+        <h2>Toyota Camry</h2>
+        <ul>
+            <li>Capability: Reliable, family sedan</li>
+            <li>Minimum Ground Clearance: 5.7 inches</li>
+            <li>Fuel Efficiency: 28-39 MPG</li>
+            <li>Engine type=4cylinder+Battery Pack</li>
+            <li>Maximum Power=318</li>
+        </ul>
+    </div>
+
+</body>
+</html>

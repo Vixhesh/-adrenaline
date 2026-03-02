@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+{% block content %}
+
+<h2>Your Addresses</h2>
+
+<form method="POST">
+    <input name="full_name" placeholder="Full Name" required>
+    <input name="phone" placeholder="Phone" required>
+    <input name="line1" placeholder="Address Line 1" required>
+    <input name="line2" placeholder="Address Line 2">
+    <input name="city" placeholder="City" required>
+    <input name="state" placeholder="State" required>
+    <input name="pincode" placeholder="Pincode" required>
+    <button>Add Address</button>
+</form>
+
+<hr>
+
+{% for a in addresses %}
+<div style="border:1px solid #ccc;padding:10px;margin:10px;">
+    <strong>{{ a.full_name }}</strong><br>
+    {{ a.address_line1 }} {{ a.address_line2 }}<br>
+    {{ a.city }}, {{ a.state }} - {{ a.pincode }}<br>
+    📞 {{ a.phone }}
+</div>
+{% endfor %}
+
+{% endblock %}

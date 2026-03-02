@@ -1,0 +1,45 @@
+{% extends "base.html" %}
+{% block content %}
+
+<h2>Checkout</h2>
+
+<h4>Select Address</h4>
+
+<form method="POST" action="/place-order">
+
+{% for a in addresses %}
+<div>
+    <input type="radio" name="address_id" value="{{ a.id }}" required>
+    {{ a.full_name }}, {{ a.address_line1 }},
+    {{ a.city }} - {{ a.pincode }}
+</div>
+{% endfor %}
+
+<hr>
+
+<h4>Order Summary</h4>
+
+{% for i in items %}
+<p>{{ i.part_name }} × {{ i.quantity }} = ₹{{ i.price * i.quantity }}</p>
+{% endfor %}
+
+<h3>Total: ₹{{ total }}</h3>
+ <hr>
+<h4>Select Payment Method</h4>
+
+<div>
+  <input type="radio" name="payment_method" value="COD" required>
+  Cash on Delivery
+</div>
+
+<div>
+  <input type="radio" name="payment_method" value="ONLINE" required>
+  Pay Online (Razorpay)
+</div>
+
+</br>
+<button class="btn btn-success">Place Order</button>
+
+</form>
+
+{% endblock %}

@@ -1,0 +1,148 @@
+{% extends "base.html" %}
+{% block content %}
+
+<style>
+    body {
+        background-color: aquamarine !important;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+    }
+
+    .car-container {
+        width: 32%;
+        margin-bottom: 20px;
+    }
+
+    .car-image {
+        width: 90%;
+        height: auto;
+        margin-bottom: 10px;
+        border-radius: 8px;
+        transition: transform 0.3s ease;
+    }
+
+    .car-image:hover {
+        transform: scale(1.1);
+    }
+
+    ul {
+        list-style-type: none;
+        padding-left: 0;
+    }
+
+    li {
+        margin-bottom: 5px;
+    }
+
+    .car-contains {
+        width: 32%;
+        margin-top: 20px;
+    }
+
+    @media (max-width: 768px) {
+        .car-container,
+        .car-contains {
+            width: 100%;
+        }
+    }
+</style>
+
+<div class="container mt-4">
+
+    <h1 class="text-center fw-bold">
+        Aggressive & Sporty Cars Information
+    </h1>
+
+    <div class="text-center mb-4">
+        <a href="{{ url_for('MANYMORE') }}"><h3>PARTS AND SERVICE</h3></a>
+    </div>
+
+    <div class="d-flex flex-wrap justify-content-between">
+
+         
+        <div class="car-container">
+            <img class="car-image" src="{{ url_for('static', filename='bugati.webp') }}" alt="Bugatti Chiron">
+            <ul>
+                <li><h2>Bugatti Chiron</h2></li>
+                <li>Capability: High-performance, luxury</li>
+                <li>Minimum Ground Clearance: 3.5 inches</li>
+                <li>Fuel Efficiency: 9-14 MPG</li>
+                <li>Maximum bhp: 1479</li>
+            </ul>
+        </div>
+
+        
+        <div class="car-container">
+            <img class="car-image" src="{{ url_for('static', filename='nissangtr.jpg') }}" alt="Nissan GTR">
+            <ul>
+                <li><h2>Nissan GTR</h2></li>
+                <li>Capability: High-performance, technology</li>
+                <li>Minimum Ground Clearance: 3.9 inches</li>
+                <li>Fuel Efficiency: 16-23 MPG</li>
+                <li>Maximum bhp: 565</li>
+            </ul>
+        </div>
+ 
+        <div class="car-container">
+            <img class="car-image" src="{{ url_for('static', filename='supra.jpg') }}" alt="Toyota Supra">
+            <ul>
+                <li><h2>Toyota Supra</h2></li>
+                <li>Capability: High-performance, modified</li>
+                <li>Minimum Ground Clearance: 3.3 inches</li>
+                <li>Fuel Efficiency: 20-27 MPG</li>
+                <li>Maximum bhp: 500</li>
+            </ul>
+        </div>
+
+        
+        <div class="car-container">
+            <img class="car-image" src="{{ url_for('static', filename='mustang.png') }}" alt="Mustang V8">
+            <ul>
+                <li><h2>Mustang V8</h2></li>
+                <li>Capability: High-performance, muscle car</li>
+                <li>Minimum Ground Clearance: 4.7 inches</li>
+                <li>Fuel Efficiency: 14-23 MPG</li>
+                <li>Maximum bhp: 460</li>
+            </ul>
+        </div>
+
+         
+        <div class="car-container">
+            <img class="car-image" src="{{ url_for('static', filename='auditt.jpg') }}" alt="Audi TT">
+            <ul>
+                <li><h2>Audi TT</h2></li>
+                <li>Capability: Sporty, luxury</li>
+                <li>Minimum Ground Clearance: 4.4 inches</li>
+                <li>Fuel Efficiency: 23-30 MPG</li>
+                <li>Maximum bhp: 228</li>
+            </ul>
+        </div>
+ 
+        <div class="car-container">
+            <img class="car-image" src="{{ url_for('static', filename='audirs.jpg') }}" alt="Audi RS">
+            <ul>
+                <li><h2>Audi RS</h2></li>
+                <li>Capability: High-performance, luxury</li>
+                <li>Minimum Ground Clearance: 4.5 inches</li>
+                <li>Fuel Efficiency: 22-30 MPG</li>
+                <li>Maximum bhp: 401</li>
+            </ul>
+        </div>
+
+         
+        <div class="car-contains">
+            <img class="car-image" src="{{ url_for('static', filename='allcars.jpg') }}" alt="Many More">
+            <p style="font-size: 20px; font-weight: bold;">
+                Many more like this are available depending on your order and demand.
+            </p>
+
+            <p style="font-size: 20px;">
+                For tuning, remapping & performance upgrades visit our dealer <strong>S.V.S.V</strong>.
+            </p>
+        </div>
+
+    </div>
+</div>
+
+{% endblock %}

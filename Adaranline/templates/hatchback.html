@@ -1,0 +1,156 @@
+{% extends "base.html" %}
+{% block content %}
+
+<style>
+    body {
+        background-color: dimgray !important;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+    }
+
+    .car-container {
+        width: 32%;
+        margin-bottom: 20px;
+        overflow: hidden;
+    }
+
+    .car-image {
+        width: 100%;
+        height: auto;
+        transition: transform 0.3s ease;
+        border-radius: 8px;
+    }
+
+    .car-image:hover {
+        transform: scale(1.2);
+    }
+
+    ul {
+        list-style-type: none;
+        padding-left: 0;
+    }
+
+    li {
+        margin-bottom: 5px;
+    }
+
+    @media (max-width: 768px) {
+        .car-container {
+            width: 100%;
+        }
+    }
+</style>
+
+<div class="container mt-4">
+
+    <h1 class="text-center fw-bold">
+        Hatchback Cars Information
+    </h1>
+
+    <div class="text-center mb-4">
+        <a href="{{ url_for('hatchbackparts') }}"><h3>PARTS AND MODIFICATION ITEMS</h3></a>
+    </div>
+
+    <div class="d-flex flex-wrap justify-content-between">
+
+        <!-- Volkswagen Golf R -->
+        <div class="car-container">
+            <img class="car-image" src="{{ url_for('static', filename='golf.jpg') }}" alt="Volkswagen Golf R">
+            <ul>
+                <li><h2>Volkswagen Golf R</h2></li>
+                <li>Capability: Sporty, performance</li>
+                <li>Minimum Ground Clearance: 5.0 inches</li>
+                <li>Fuel Efficiency: 22-29 MPG</li>
+                <li>Maximum bhp: 315</li>
+            </ul>
+        </div>
+
+        <!-- Mini Cooper -->
+        <div class="car-container">
+            <img class="car-image" src="{{ url_for('static', filename='mini.jpg') }}" alt="Mini Cooper">
+            <ul>
+                <li><h2>Mini Cooper</h2></li>
+                <li>Capability: Compact, stylish</li>
+                <li>Minimum Ground Clearance: 5.5 inches</li>
+                <li>Fuel Efficiency: 28-38 MPG</li>
+                <li>Maximum bhp: 189</li>
+            </ul>
+        </div>
+
+        <!-- Mercedes AMG A45S -->
+        <div class="car-container">
+            <img class="car-image" src="{{ url_for('static', filename='amg.webp') }}" alt="Mercedes AMG A45S">
+            <ul>
+                <li><h2>Mercedes AMG A45S</h2></li>
+                <li>Capability: High-performance, luxury</li>
+                <li>Minimum Ground Clearance: 4.3 inches</li>
+                <li>Fuel Efficiency: 24-31 MPG</li>
+                <li>Maximum bhp: 415</li>
+            </ul>
+        </div>
+
+        <!-- Audi RS -->
+        <div class="car-container">
+            <img class="car-image" src="{{ url_for('static', filename='audirs.avif') }}" alt="Audi RS">
+            <ul>
+                <li><h2>Audi RS</h2></li>
+                <li>Capability: Sporty, luxury</li>
+                <li>Minimum Ground Clearance: 4.5 inches</li>
+                <li>Fuel Efficiency: 22-30 MPG</li>
+                <li>Maximum bhp: 401</li>
+            </ul>
+        </div>
+
+        <!-- BMW M135i -->
+        <div class="car-container">
+            <img class="car-image" src="{{ url_for('static', filename='m135.jpg') }}" alt="BMW M135i">
+            <ul>
+                <li><h2>BMW M135i</h2></li>
+                <li>Capability: Performance, luxury</li>
+                <li>Minimum Ground Clearance: 5.3 inches</li>
+                <li>Fuel Efficiency: 26-34 MPG</li>
+                <li>Maximum bhp: 302</li>
+            </ul>
+        </div>
+
+        <!-- Swift Sports -->
+        <div class="car-container">
+            <img class="car-image" src="{{ url_for('static', filename='swiftr.jpg') }}" alt="Swift Sports">
+            <ul>
+                <li><h2>Swift Sports</h2></li>
+                <li>Capability: Performance, compact</li>
+                <li>Minimum Ground Clearance: 4.2 inches</li>
+                <li>Fuel Efficiency: 26-34 MPG</li>
+                <li>Maximum bhp: 220</li>
+            </ul>
+        </div>
+
+         
+        <div class="car-container">
+            <img class="car-image" src="{{ url_for('static', filename='vrs.jpg') }}" alt="Skoda Octavia VRS 245">
+            <ul>
+                <li><h2>Skoda Octavia VRS 245</h2></li>
+                <li>Capability: Sporty, performance</li>
+                <li>Minimum Ground Clearance: 5.3 inches</li>
+                <li>Fuel Efficiency: 25-32 MPG</li>
+                <li>Maximum bhp: 242</li>
+            </ul>
+        </div>
+
+        
+        <div class="car-container">
+            <img class="car-image" src="{{ url_for('static', filename='yaris.webp') }}" alt="Toyota GR Yaris">
+            <ul>
+                <li><h2>Toyota GR Yaris</h2></li>
+                <li>Capability: High performance</li>
+                <li>Minimum Ground Clearance: 4.2 inches</li>
+                <li>Fuel Efficiency: 26-34 MPG</li>
+                <li>Maximum bhp: 440</li>
+            </ul>
+        </div>
+
+    </div>
+</div>
+
+{% endblock %}

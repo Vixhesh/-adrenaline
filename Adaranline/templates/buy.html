@@ -1,0 +1,144 @@
+{% extends "base.html" %}
+{% block content %}
+<div>
+    <div>
+        <label>Vehicle Type</label>
+        <select id="vehicle_type">
+            <option value="">Select</option>
+            {% for v in vehicle_types %}
+            <option value="{{ v }}" {% if v == selected_vehicle %}selected{% endif %}>
+                {{ v }}
+            </option>
+            {% endfor %}
+        </select>
+    </div>
+    {% if selected_vehicle %}
+    <div>
+        <label>Brand</label>
+        <select id="brand">
+            <option value="">Select</option>
+            {% for b in brands %}
+            <option value="{{ b }}" {% if b == selected_brand %}selected{% endif %}>
+                {{ b }}
+            </option>
+            {% endfor %}
+        </select>
+    </div>
+    {% endif %}
+    {% if selected_brand %}
+    <div>
+        <label>Model</label>
+        <select id="model">
+            <option value="">Select</option>
+            {% for m in models %}
+            <option value="{{ m }}" {% if m == selected_model %}selected{% endif %}>
+                {{ m }}
+            </option>
+            {% endfor %}
+        </select>
+    </div>
+    {% endif %}
+    {% if selected_model %}
+    <div>
+        <label>Year</label>
+        <select id="year">
+            <option value="">Select</option>
+            {% for y in years %}
+            <option value="{{ y }}" {% if y|string == selected_year %}selected{% endif %}>
+                {{ y }}
+            </option>
+            {% endfor %}
+        </select>
+    </div>
+    {% endif %}
+    {% if selected_year %}
+    <div>
+        <label>Engine</label>
+        <select id="engine">
+            <option value="">Select</option>
+            {% for e in engines %}
+            <option value="{{ e }}" {% if e == selected_engine %}selected{% endif %}>
+                {{ e }}
+            </option>
+            {% endfor %}
+        </select>
+    </div>
+    {% endif %}
+    {% if selected_engine %}
+    <div>
+        <label>Part Category</label>
+        <select id="part_category">
+            <option value="">Select</option>
+            {% for c in part_categories %}
+            <option value="{{ c }}" {% if c == selected_part_category %}selected{% endif %}>
+                {{ c }}
+            </option>
+            {% endfor %}
+        </select>
+    </div>
+    {% endif %}
+    {% if selected_part_category %}
+        {% if selected_part_category == "OTHERS" %}
+            <div>
+                <label>Specify Part</label>
+                <input id="custom_part" type="text" value="{{ session.get('custom_part','') }}">
+            </div>
+        {% else %}
+            <div>
+                <label>Part Name</label>
+                <select id="part_name">
+                    <option value="">Select</option>
+                    {% for p in part_names %}
+                    <option value="{{ p }}" {% if p == selected_part_name %}selected{% endif %}>
+                        {{ p }}
+                    </option>
+                    {% endfor %}
+                </select>
+            </div>
+        {% endif %}
+        <div style="margin-top:20px; display:flex; gap:10px;">
+            <a href="/products">
+                <button type="button">Find Parts</button>
+            </a>
+            <button type="button" onclick="clearSelection()">Clear</button>
+        </div>
+    {% endif %}
+</div>
+<script>
+function send(key, value) {
+    fetch("/api/selection", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ key, value })
+    }).then(() => location.reload());
+}
+document.getElementById("vehicle_type")?.addEventListener("change", e =>
+    send("vehicle_type", e.target.value)
+);
+document.getElementById("brand")?.addEventListener("change", e =>
+    send("brand", e.target.value)
+);
+document.getElementById("model")?.addEventListener("change", e =>
+    send("model", e.target.value)
+);
+document.getElementById("year")?.addEventListener("change", e =>
+    send("year", e.target.value)
+);
+document.getElementById("engine")?.addEventListener("change", e =>
+    send("engine", e.target.value)
+);
+document.getElementById("part_category")?.addEventListener("change", e =>
+    send("part_category", e.target.value)
+);
+document.getElementById("part_name")?.addEventListener("change", e =>
+    send("part_name", e.target.value)
+);
+document.getElementById("custom_part")?.addEventListener("blur", e =>
+    send("custom_part", e.target.value)
+);
+function clearSelection() {
+    fetch("/api/clear", { method: "POST" })
+        .then(() => location.reload());
+}
+</script>
+{% endblock %}

@@ -1,0 +1,66 @@
+{% extends "base.html" %}
+{% block content %}
+
+<h2 class="text-center mb-5">Our Services</h2>
+
+<ul class="list-unstyled">
+
+    <li class="mb-4">
+        <h2>Tuning or Remapping</h2>
+        <p>
+            We offer a variety of remaps from different tuning codes (e.g., Quantum, TVS, etc).  
+            Additionally, we unlock features present in your ECU but blocked by the manufacturer.
+        </p>
+    </li>
+
+    <li class="mb-4">
+        <h2>Detailing</h2>
+
+        <h4>1. Exterior Detailing</h4>
+        <ul>
+            <li>Washing & drying to remove contaminants</li>
+            <li>Cleaning and dressing tires & wheels</li>
+            <li>Cleaning exterior trim and glass</li>
+        </ul>
+
+        <h4>2. Interior Detailing</h4>
+        <ul>
+            <li>Vacuuming & steam cleaning interior</li>
+            <li>Glass cleaning</li>
+            <li>Odor removal (deodorizers or ozone treatment)</li>
+        </ul>
+
+        <h4>3. Additional Services</h4>
+        <ul>
+            <li>Paint Protection Film (PPF)</li>
+            <li>Ceramic coating for long-lasting paint protection</li>
+        </ul>
+    </li>
+
+    <li class="mb-4">
+        <h2>Wheel Alignment</h2>
+
+        <h4>1. Importance</h4>
+        <p>Improves handling, steering, and tire wear.</p>
+
+        <h4>2. Equipment</h4>
+        <p>Computerized alignment machine, turnplates, rack.</p>
+
+        <h4>3. Benefits</h4>
+        <p>Better handling, longer tire life, improved fuel efficiency.</p>
+    </li>
+
+    <li class="mb-4">
+        <h2>Performance Mods</h2>
+
+        <ul>
+            <li><strong>Turbo Upgrades:</strong> Improve acceleration & overall performance.</li>
+            <li><strong>Exhaust & Air Filters:</strong> Boost horsepower through improved airflow.</li>
+        </ul>
+    </li>
+
+    <div class="controver" href="{{ url_for('service') }}">SERVICE</div>
+
+</ul>
+
+{% endblock %}
