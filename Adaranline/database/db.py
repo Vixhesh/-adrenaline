@@ -3,11 +3,11 @@ import os
 from mysql.connector import Error
 try:
     conn = mysql.connector.connect(
-    host=os.environ.get("MYSQLHOST"),
-    user=os.environ.get("MYSQLUSER"),
-    password=os.environ.get("MYSQLPASSWORD"),
-    database=os.environ.get("MYSQLDATABASE"),
-    port=int(os.environ.get("MYSQLPORT"))
+    host=os.environ.get("MYSQL_HOST"),
+    user=os.environ.get("MYSQL_USER"),
+    password=os.environ.get("MYSQL_PASSWORD"),
+    database=os.environ.get("MYSQL_DATABASE"),
+    port=int(os.environ.get("MYSQL_PORT"))
 )
     cursor=conn.cursor(dictionary=True)
     conn.autocommit=True
