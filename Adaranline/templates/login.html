@@ -1,13 +1,10 @@
 {% extends "base.html" %}
-
 {% block content %}
 <link rel="stylesheet" href="{{ url_for('static', filename='css/auth.css') }}">
-
 <div class="split-container">
     <div class="left-side">
         Welcome Back!
     </div>
-
     <div class="right-side">
         <div class="auth-box">
             <h2>Login</h2>
@@ -16,7 +13,6 @@
                 <input type="email " name="email" placeholder="Email" required>
                 <input type="password" name="password" placeholder="Password" required>
                 <div class="switch-link"> <a href="{{ url_for('forgot_password') }}">Forgot Password ?</a> </div>
-
                 <button type="submit">Login</button> 
                 <div class="switch-link"> <a href="{{ url_for('register') }}">Create an account</a> </div>
                 <div class="switch-link">
@@ -25,7 +21,6 @@
     </a>
 </div>
                 <div class="agreement"> <a href="{{ url_for('register') }}">learn user Licence agreement</a> </div>
-                  
             </form>
         </div>
     </div>
