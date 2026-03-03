@@ -14,7 +14,7 @@ const config = {
 let ship, cursors, fireKey;
 let lastSpawnY = 0;
 let bullets = [];
-// let aliens = [];
+let aliens = [];
 let settings;
 let isPaused=true;
 let playButton;
@@ -29,7 +29,7 @@ function preload() {
 
 function create() {
   settings = new Settings();
-  this.aliens = aliens;
+  
   ship = new Ship(this);
   this.cameras.main.setBackgroundColor("#ffffff");
 
