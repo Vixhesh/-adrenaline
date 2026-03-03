@@ -2,7 +2,7 @@ export default class Bullet {
   constructor(scene, x, y, speed) {
     this.scene = scene;
     this.speed = speed;
-    this.sprite = scene.add.rectangle(x, y, 4, 12, 0xffffff);
+    this.sprite = scene.add.rectangle(x, y, 4, 12, 0x000000);
     scene.physics.add.existing(this.sprite);
 
     this.sprite.body.setAllowGravity(false);

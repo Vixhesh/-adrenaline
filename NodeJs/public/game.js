@@ -39,9 +39,6 @@ function create() {
   );
 
   this.input.on("pointerdown", fireBullet, this);
-
-  // createFleet.call(this);
-  // 🔴 Fleet will be created after Play is pressed
   this.physics.pause();
     playButton = this.add.circle(
     this.scale.width / 2,
@@ -62,15 +59,12 @@ function create() {
 
 function createFleet() {
   aliens = [];                     
-
   const startX = 80;
   const startY = 80;
   const gapX = 70;
   const gapY = 60;
-
-  const rows = 1;                 
-
-  for (let row = 0; row < rows; row++) {           
+  const rows = 4;                 
+    for (let row = 0; row < rows; row++) {           
     for (let x = startX; x <= 1000; x += gapX) {
       const alien = new Alien(
         this,
@@ -154,17 +148,9 @@ function update() {
   if (Phaser.Input.Keyboard.JustDown(fireKey)) {
     fireBullet.call(this);
   }
-  let lowestAlienY = 0;
-aliens.forEach(alien => {
-  if (alien.sprite.y > lowestAlienY) {
-    lowestAlienY = alien.sprite.y;
-  }
-});
-
-if (lowestAlienY - lastSpawnY > 60) {                 // 🔴 MODIFIED
-  settings.increaseSpeed();               // 🔴 NEW
-  createFleet.call(this);                 // 🔴 spawn new row
-lastSpawnY = lowestAlienY; 
+   if (aliens.length === 0 && !isPaused) {
+  settings.increaseSpeed();
+  createFleet.call(this);
 }
 
 }
