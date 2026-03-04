@@ -1,1 +1,1 @@
-web: gunicorn Adaranline.app:app
+web: gunicorn app:app
