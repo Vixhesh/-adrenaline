@@ -200,13 +200,12 @@ def add_product():
 
         flash("Product added successfully")
 
-        return redirect(url_for("admin_bp.products"))
+        return redirect(url_for("admin.manage_products"))
 
     return render_template("admin/add_product.html")
 @admin_bp.route("/product/delete/<int:p_id>")
 @admin_login_required
 def delete_product(p_id):
-
     cursor.execute("DELETE FROM products WHERE p_id=%s", (p_id,))
     conn.commit()
     return redirect("/admin/products")
@@ -218,12 +217,9 @@ def increase_stock(pid):
         SET stock = stock + 10
         WHERE p_id = %s
     """, (pid,))
-
     conn.commit()
-
     flash("Stock increased successfully")
-
-    return redirect(url_for("admin_bp.products"))
+    return redirect(url_for("admin.manage_products"))   
 @admin_bp.route("/orders")
 @admin_login_required
 def manage_orders():
