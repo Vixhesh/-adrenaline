@@ -18,6 +18,7 @@
 <tbody>
 {% for p in products %}
 <tr>
+<td><a href="{{url_for('admin.add_product')}}" class="btn btn-success btn-sm">Add Product</a>
 <td>{{ p.p_id }}</td>
 <td>{{ p.brand }} {{ p.model }}</td>
 <td>{{ p.part_name }}</td>
