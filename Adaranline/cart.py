@@ -1,6 +1,7 @@
 from flask import Blueprint, redirect, flash, session,render_template,jsonify
 from auth.mandatelogin import login_required,ajax_login_required
-from database.db import conn, cursor
+from database.db import get_db_connection
+conn, cursor = get_db_connection()
 cart_bp = Blueprint("cart", __name__)
 @cart_bp.route("/add-to-cart/<int:product_id>", methods=["POST"])
 @ajax_login_required

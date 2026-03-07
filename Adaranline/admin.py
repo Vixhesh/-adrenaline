@@ -1,6 +1,7 @@
 from flask import Blueprint, render_template, request, redirect, session, flash
 from functools import wraps
-from database.db import conn, cursor
+from database.db import get_db_connection
+conn, cursor = get_db_connection()
 from auth.encryption import verify_password
 
 admin_bp = Blueprint("admin", __name__, url_prefix="/admin")
