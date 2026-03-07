@@ -1,29 +1,54 @@
 {% extends "admin/layout.html" %}
 {% block content %}
 
-<h2>Login Activity</h2>
+<h2>User Login Activity</h2>
 
-<table class="table table-dark table-striped">
+<table class="table table-dark table-hover">
+
 <thead>
 <tr>
+
 <th>User</th>
 <th>IP</th>
+<th>Location</th>
 <th>Browser</th>
+<th>OS</th>
 <th>Device</th>
-<th>Login Time</th>
+<th>Login</th>
+<th>Logout</th>
+<th>Duration</th>
+
 </tr>
 </thead>
 
 <tbody>
-{% for l in activities %}
+
+{% for a in activity %}
+
 <tr>
-<td>{{ l.user_id }}</td>
-<td>{{ l.ip_address }}</td>
-<td>{{ l.browser }}</td>
-<td>{{ l.device_type }}</td>
-<td>{{ l.login_time }}</td>
+
+<td>{{ a.name }}</td>
+
+<td>{{ a.ip_address }}</td>
+
+<td>{{ a.city }}, {{ a.region }}, {{ a.country }}</td>
+
+<td>{{ a.browser }} {{ a.browser_version }}</td>
+
+<td>{{ a.os }} {{ a.os_version }}</td>
+
+<td>{{ a.device_type }}</td>
+
+<td>{{ a.login_time }}</td>
+
+<td>{{ a.logout_time }}</td>
+
+<td>{{ a.session_duration_seconds }} sec</td>
+
 </tr>
+
 {% endfor %}
+
 </tbody>
 
 </table>

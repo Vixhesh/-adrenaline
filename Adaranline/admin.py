@@ -1,4 +1,4 @@
-from flask import Blueprint, render_template, request, redirect, session, flash
+from flask import Blueprint, render_template, request, redirect, session, flash,url_for
 from functools import wraps
 from database.db import get_db_connection
 conn, cursor = get_db_connection()
@@ -100,33 +100,36 @@ def update_user(user_id):
     flash("User updated successfully")
     return redirect("/admin/users")
 @admin_bp.route("/login-activity")
-@admin_login_required
 def login_activity():
 
     cursor.execute("""
         SELECT 
-            l.id,
+            la.id,
             u.name,
-            l.ip_address,
-            l.city,
-            l.country,
-            l.browser,
-            l.os,
-            l.device_type,
-            l.login_time,
-            l.logout_time,
-            l.session_duration_seconds
-        FROM login_activity l
-        JOIN users u ON l.user_id = u.id
-        ORDER BY l.login_time DESC
+            la.ip_address,
+            la.city,
+            la.region,
+            la.country,
+            la.browser,
+            la.browser_version,
+            la.os,
+            la.os_version,
+            la.device_type,
+            la.login_time,
+            la.logout_time,
+            la.session_duration_seconds
+        FROM login_activity la
+        JOIN users u ON la.user_id = u.id
+        ORDER BY la.login_time DESC
     """)
 
-    activities = cursor.fetchall()
+    activity = cursor.fetchall()
 
     return render_template(
         "admin/login_activity.html",
-        activities=activities
+        activity=activity
     )
+
 @admin_bp.route("/delete-activity/<int:activity_id>")
 @admin_login_required
 def delete_activity(activity_id):
@@ -166,14 +169,58 @@ def manage_products():
     products = cursor.fetchall()
 
     return render_template("admin/products.html", products=products)
+@admin_bp.route("/product/add", methods=["GET","POST"])
+def add_product():
+
+    if request.method == "POST":
+
+        vehicle_type = request.form["vehicle_type"]
+        brand = request.form["brand"]
+        model = request.form["model"]
+        year = request.form["year"]
+        engine = request.form["engine"]
+        part_category = request.form["part_category"]
+        part_name = request.form["part_name"]
+        price = request.form["price"]
+        stock = request.form["stock"]
+
+        cursor.execute("""
+        INSERT INTO products
+        (vehicle_type,brand,model,year,engine,part_category,part_name,price,stock)
+        VALUES (%s,%s,%s,%s,%s,%s,%s,%s,%s)
+        """,(
+            vehicle_type,brand,model,year,engine,
+            part_category,part_name,price,stock
+        ))
+
+        conn.commit()
+
+        flash("Product added successfully")
+
+        return redirect(url_for("admin_bp.products"))
+
+    return render_template("admin/add_product.html")
 @admin_bp.route("/product/delete/<int:p_id>")
 @admin_login_required
 def delete_product(p_id):
 
     cursor.execute("DELETE FROM products WHERE p_id=%s", (p_id,))
     conn.commit()
-
     return redirect("/admin/products")
+@admin_bp.route("/product/increase-stock/<int:pid>")
+def increase_stock(pid):
+
+    cursor.execute("""
+        UPDATE products
+        SET stock = stock + 10
+        WHERE p_id = %s
+    """, (pid,))
+
+    conn.commit()
+
+    flash("Stock increased successfully")
+
+    return redirect(url_for("admin_bp.products"))
 @admin_bp.route("/orders")
 @admin_login_required
 def manage_orders():

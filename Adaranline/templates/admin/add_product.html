@@ -1,0 +1,24 @@
+{% extends "admin/layout.html" %}
+{% block content %}
+
+<h2>Add Product</h2>
+
+<form method="POST">
+
+<input name="vehicle_type" placeholder="Vehicle Type" class="form-control"><br>
+<input name="brand" placeholder="Brand" class="form-control"><br>
+<input name="model" placeholder="Model" class="form-control"><br>
+<input name="year" placeholder="Year" class="form-control"><br>
+<input name="engine" placeholder="Engine" class="form-control"><br>
+
+<input name="part_category" placeholder="Category" class="form-control"><br>
+<input name="part_name" placeholder="Part Name" class="form-control"><br>
+
+<input name="price" placeholder="Price" class="form-control"><br>
+<input name="stock" placeholder="Stock" class="form-control"><br>
+
+<button class="btn btn-success">Add Product</button>
+
+</form>
+
+{% endblock %}
