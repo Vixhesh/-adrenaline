@@ -68,12 +68,12 @@ body {
 
 <div class="sidebar">
     <h4>⚙ Admin</h4>
-    <a href="/admin/dashboard">Dashboard</a>
-    <a href="{{ url_for('admin_bp.products') }}">Products</a>
-    <a href="/admin/orders">Orders</a>
-    <a href="/admin/users">Users</a>
-    <a href="/admin/login-activity">Login Activity</a>
-    <a href="/admin/logout" class="text-danger">Logout</a>
+<a href="{{ url_for('admin.dashboard') }}">Dashboard</a>
+<a href="{{ url_for('admin.products') }}">Products</a>
+<a href="{{ url_for('admin.orders') }}">Orders</a>
+<a href="{{ url_for('admin.users') }}">Users</a>
+<a href="{{ url_for('admin.login_activity') }}">Login Activity</a>
+<a href="{{ url_for('admin.logout') }}" class="text-danger">Logout</a>
 </div>
 
 <div class="content">

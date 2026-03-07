@@ -60,6 +60,9 @@ def admin_logout():
     session.pop("admin_id", None)
     flash("Admin logged out")
     return redirect("/admin/login")
+@admin_bp.route("/Gotohome")
+def Gotohome():
+    return redirect("/")
 @admin_bp.route("/users")
 @admin_login_required
 def users():
