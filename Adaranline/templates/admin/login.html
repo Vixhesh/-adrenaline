@@ -12,6 +12,13 @@ body{
     justify-content:center;
     align-items:center;
     background:linear-gradient(135deg,#0f2027,#203a43,#2c5364);
+    position: relative;
+    margin: 0;
+}
+.con{
+    position: absolute;      
+    top: 20px;                
+    left: 20px;
 }
 .card{
     width:400px;
@@ -41,8 +48,9 @@ body{
 </style>
 </head>
 <body>
-
-<a href="{{ url_for('admin.Gotohome') }}" class="text-danger">Go to Home</a>
+<div class="con">
+    <a href="{{ url_for('admin.Gotohome') }}" class="btn btn-danger btn-sm">Go to Home</a>
+</div>
 <div class="card">
 <h3 class="text-center mb-4">⚙ Admin Login</h3>
 
