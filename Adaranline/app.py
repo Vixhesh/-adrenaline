@@ -7,7 +7,8 @@ import uuid
 from auth.encryption import encrypt_password, verify_password
 from auth.mandatelogin import login_required
 from mysql.connector import Error
-from database.db import conn,cursor
+from database.db import get_db_connection
+conn, cursor = get_db_connection()
 import requests ,jwt          
 import datetime
 from user_agents import parse
