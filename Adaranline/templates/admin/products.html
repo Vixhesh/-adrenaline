@@ -31,7 +31,7 @@
 {% endif %}
 </td>
 <td>
-<a href="{{url_for('admin.delete_product', p.p_id }}" class="btn btn-danger btn-sm">Delete</a>
+<a href="{{url_for('admin.delete_product', p.p_id )}}" class="btn btn-danger btn-sm">Delete</a>
 <a href="{{ url_for('admin.increase_stock', pid=p.p_id) }}" 
    class="btn btn-success btn-sm">
 + Stock
