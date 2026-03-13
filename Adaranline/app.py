@@ -1,5 +1,6 @@
 from flask import Flask, render_template, redirect, request, flash, send_from_directory, session ,jsonify
 from cart import cart_bp
+import re
 from admin import admin_bp
 from flask_mail import Mail, Message
 import random
@@ -420,8 +421,15 @@ def register():
         try:
             name = request.form.get('name')
             email = request.form.get('email')
+            if len(password) < 8:
+                flash("Password must be at least 8 characters")
+                return redirect('/register')
             password = encrypt_password(request.form.get('password'))
+            if not re.match(r"^\d{10}$", phone):
+                flash("Phone number must be 10 digits")
+                return redirect('/register')
             phone = request.form.get('phone')
+            
             print(phone)
             cursor.execute(
                 "INSERT INTO users (name, email, password, phone) VALUES (%s, %s, %s, %s)",
