@@ -421,16 +421,17 @@ def register():
         try:
             name = request.form.get('name')
             email = request.form.get('email')
+            password = encrypt_password(request.form.get('password'))
             if len(password) < 8:
                 flash("Password must be at least 8 characters")
                 return redirect('/register')
-            password = encrypt_password(request.form.get('password'))
+            phone = request.form.get('phone')
             if not re.match(r"^\d{10}$", phone):
                 flash("Phone number must be 10 digits")
                 return redirect('/register')
-            phone = request.form.get('phone')
+             
             
-            print(phone)
+            # print(phone)
             cursor.execute(
                 "INSERT INTO users (name, email, password, phone) VALUES (%s, %s, %s, %s)",
                 (name, email, password, phone)
